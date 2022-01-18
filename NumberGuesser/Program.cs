@@ -21,14 +21,12 @@ namespace NumberGuesser
 
             Console.WriteLine("{0}: Version {1} by {2}", appName, appVersion, appAuthor);
 
-            // Change Text color again
+
+
             while (true)
             {
                 Console.ForegroundColor = ConsoleColor.DarkMagenta;
 
-                // Setting correct number
-
-                // int correctNumber = 7;
 
                 // generating a random number for the correct number
 
@@ -36,6 +34,9 @@ namespace NumberGuesser
 
                 int correctNumber = random.Next(1, 10); // set the random parameters and such
 
+                // init guessed number
+
+                int guessedNumber = 0;
 
                 // Starting game
 
@@ -43,13 +44,8 @@ namespace NumberGuesser
 
                 Console.ForegroundColor = ConsoleColor.Yellow;
 
+                Console.WriteLine("Guess a number between 1 and 10");
 
-                // init guessed number
-
-                int guessedNumber = 0;
-
-                Console.WriteLine("Guess the number I'm thinking.");
-                Console.WriteLine("It's between 1 and 10");
                 Console.ResetColor();
 
                 // ask user for number
@@ -83,16 +79,36 @@ namespace NumberGuesser
                         Console.WriteLine("Try Again!");
                         Console.ResetColor();
                     }
-                    else
-                    {
-                        Console.ForegroundColor = ConsoleColor.Magenta;
-                        Console.WriteLine("Exactly Right!");
-                    }
-
                 }
 
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("C0RRECT0!");
+
+
+                // ask User if they want to play again
+
+                Console.WriteLine("Do you want to play again? [Y or N]");
+
+                string answer = Console.ReadLine().ToUpper();
+
+
+                if (answer == "Y")
+                {
+                    continue;
+                }
+                else if (answer == "N")
+                {
+                    return;
+                }
+                else
+                {
+                    return;
+                }
+
+                // if the answer is yes you continue in the loop if not you return outside the loop and quit
             }
 
         }
+
     }
 }
