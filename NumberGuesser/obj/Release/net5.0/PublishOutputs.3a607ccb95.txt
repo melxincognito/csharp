@@ -1,0 +1,5 @@
+/Users/mel/Desktop/csharp/NumberGuesser/NumberGuesser/NumberGuesser
+/Users/mel/Desktop/csharp/NumberGuesser/NumberGuesser/NumberGuesser.dll
+/Users/mel/Desktop/csharp/NumberGuesser/NumberGuesser/NumberGuesser.deps.json
+/Users/mel/Desktop/csharp/NumberGuesser/NumberGuesser/NumberGuesser.runtimeconfig.json
+/Users/mel/Desktop/csharp/NumberGuesser/NumberGuesser/NumberGuesser.pdb

@@ -20,7 +20,7 @@
       "outputPath": "/Users/mel/Desktop/csharp/NumberGuesser/NumberGuesser/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/mel/.config/NuGet/NuGet.Config"
+        "/Users/mel/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net5.0"
