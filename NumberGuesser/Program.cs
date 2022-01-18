@@ -7,26 +7,12 @@ namespace NumberGuesser
         // Entry point of your main method
         static void Main(string[] args)
         {
+            GetAppInfo();
 
-            // Set up app vars
-
-            string appName = "Number Guesser";
-            string appVersion = "1.0.0";
-            string appAuthor = "Mel Incögnito";
-
-            // Change TextColor
-            Console.ForegroundColor = ConsoleColor.Cyan;
-
-            // Write out App info
-
-            Console.WriteLine("{0}: Version {1} by {2}", appName, appVersion, appAuthor);
-
-
+            GreetUser();
 
             while (true)
             {
-                Console.ForegroundColor = ConsoleColor.DarkMagenta;
-
 
                 // generating a random number for the correct number
 
@@ -40,13 +26,7 @@ namespace NumberGuesser
 
                 // Starting game
 
-                Console.WriteLine("Lets play a game!");
-
-                Console.ForegroundColor = ConsoleColor.Yellow;
-
-                Console.WriteLine("Guess a number between 1 and 10");
-
-                Console.ResetColor();
+                PrintColorMessage(ConsoleColor.Green, "Guess a number between 1 and 10");
 
                 // ask user for number
 
@@ -58,11 +38,9 @@ namespace NumberGuesser
 
                     if (!int.TryParse(userInput, out guessedNumber))
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
 
-                        Console.WriteLine("Type a valid number");
+                        PrintColorMessage(ConsoleColor.Red, "Please type a real number");
 
-                        Console.ResetColor();
                         // have to add continue for it to loop around or the app will just crash
                         continue;
                     }
@@ -75,14 +53,14 @@ namespace NumberGuesser
 
                     if (guessedNumber != correctNumber)
                     {
-                        Console.ForegroundColor = ConsoleColor.Red;
-                        Console.WriteLine("Try Again!");
-                        Console.ResetColor();
+
+                        PrintColorMessage(ConsoleColor.Red, "Not quite! Try Again!");
+
                     }
                 }
 
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("C0RRECT0!");
+
+                PrintColorMessage(ConsoleColor.Yellow, "Correct!");
 
 
                 // ask User if they want to play again
@@ -110,5 +88,42 @@ namespace NumberGuesser
 
         }
 
+        static void GetAppInfo()
+        {
+            // Set up app vars
+
+            string appName = "Number Guesser";
+            string appVersion = "1.0.0";
+            string appAuthor = "Mel Incögnito";
+
+            // Change TextColor
+
+            PrintColorMessage(ConsoleColor.DarkMagenta, $"{appName}: Version {appVersion} written by {appAuthor}");
+
+        }
+
+        static void GreetUser()
+        {
+
+            PrintColorMessage(ConsoleColor.Blue, "Enter your name: ");
+
+            string userName = Console.ReadLine();
+
+            PrintColorMessage(ConsoleColor.Cyan, $"Welcome {userName}, let's play a game!");
+
+        }
+
+
+        // function to print colored message
+
+        static void PrintColorMessage(ConsoleColor color, string message)
+        {
+            Console.ForegroundColor = color;
+            Console.WriteLine(message);
+            Console.ResetColor();
+        }
+
+
     }
+
 }
