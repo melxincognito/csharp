@@ -18,7 +18,7 @@ namespace NumberGuesser
 
                 Random random = new Random();
 
-                int correctNumber = random.Next(1, 3); // set the random parameters and such
+                int correctNumber = random.Next(1, 10); // set the random parameters and such
 
                 // init guessed number
 
