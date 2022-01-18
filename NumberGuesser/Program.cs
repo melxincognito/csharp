@@ -29,11 +29,12 @@ namespace NumberGuesser
 
             int correctNumber = 7;
 
+            // Starting game
+
             Console.WriteLine("Lets play a game!");
 
             Console.ForegroundColor = ConsoleColor.Yellow;
 
-            
 
             // init guessed number
 
@@ -41,12 +42,26 @@ namespace NumberGuesser
 
             Console.WriteLine("Guess the number I'm thinking.");
             Console.WriteLine("It's between 1 and 10");
+            Console.ResetColor();
 
             // ask user for number
 
             while(guessedNumber != correctNumber)
             {
                 string userInput = Console.ReadLine();
+
+                //Making sure that your input is a number
+
+                if(!int.TryParse(userInput, out guessedNumber))
+                {
+                    Console.ForegroundColor = ConsoleColor.Red;
+
+                    Console.WriteLine("Type a valid number");
+
+                    Console.ResetColor();
+                    // have to add continue for it to loop around or the app will just crash
+                    continue;
+                }
 
                 // Cast to Int and put in guess
 
@@ -56,9 +71,12 @@ namespace NumberGuesser
 
                 if(guessedNumber != correctNumber)
                 {
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Try Again!");
+                    Console.ResetColor();
                 } else
                 {
+                    Console.ForegroundColor = ConsoleColor.Magenta;
                     Console.WriteLine("Exactly Right!");
                 }
 
