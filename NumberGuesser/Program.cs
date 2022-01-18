@@ -22,78 +22,77 @@ namespace NumberGuesser
             Console.WriteLine("{0}: Version {1} by {2}", appName, appVersion, appAuthor);
 
             // Change Text color again
-
-            Console.ForegroundColor = ConsoleColor.DarkMagenta;
-
-            // Setting correct number
-
-            // int correctNumber = 7;
-
-            // generating a random number for the correct number
-
-            Random random = new Random();
-
-            int correctNumber = random.Next(1, 10); // set the random parameters and such
-
-         
-            // Starting game
-
-            Console.WriteLine("Lets play a game!");
-
-            Console.ForegroundColor = ConsoleColor.Yellow;
-
-
-            // init guessed number
-
-            int guessedNumber = 0;
-
-            Console.WriteLine("Guess the number I'm thinking.");
-            Console.WriteLine("It's between 1 and 10");
-            Console.ResetColor();
-
-            // ask user for number
-
-            while(guessedNumber != correctNumber)
+            while (true)
             {
-                string userInput = Console.ReadLine();
+                Console.ForegroundColor = ConsoleColor.DarkMagenta;
 
-                //Making sure that your input is a number
+                // Setting correct number
 
-                if(!int.TryParse(userInput, out guessedNumber))
+                // int correctNumber = 7;
+
+                // generating a random number for the correct number
+
+                Random random = new Random();
+
+                int correctNumber = random.Next(1, 10); // set the random parameters and such
+
+
+                // Starting game
+
+                Console.WriteLine("Lets play a game!");
+
+                Console.ForegroundColor = ConsoleColor.Yellow;
+
+
+                // init guessed number
+
+                int guessedNumber = 0;
+
+                Console.WriteLine("Guess the number I'm thinking.");
+                Console.WriteLine("It's between 1 and 10");
+                Console.ResetColor();
+
+                // ask user for number
+
+                while (guessedNumber != correctNumber)
                 {
-                    Console.ForegroundColor = ConsoleColor.Red;
+                    string userInput = Console.ReadLine();
 
-                    Console.WriteLine("Type a valid number");
+                    //Making sure that your input is a number
 
-                    Console.ResetColor();
-                    // have to add continue for it to loop around or the app will just crash
-                    continue;
-                }
+                    if (!int.TryParse(userInput, out guessedNumber))
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
 
-                // Cast to Int and put in guess
+                        Console.WriteLine("Type a valid number");
 
-                guessedNumber = Int32.Parse(userInput);
+                        Console.ResetColor();
+                        // have to add continue for it to loop around or the app will just crash
+                        continue;
+                    }
 
-                // match guess to the correct number
+                    // Cast to Int and put in guess
 
-                if(guessedNumber != correctNumber)
-                {
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Try Again!");
-                    Console.ResetColor();
-                } else
-                {
-                    Console.ForegroundColor = ConsoleColor.Magenta;
-                    Console.WriteLine("Exactly Right!");
+                    guessedNumber = Int32.Parse(userInput);
+
+                    // match guess to the correct number
+
+                    if (guessedNumber != correctNumber)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Try Again!");
+                        Console.ResetColor();
+                    }
+                    else
+                    {
+                        Console.ForegroundColor = ConsoleColor.Magenta;
+                        Console.WriteLine("Exactly Right!");
+                    }
+
                 }
 
             }
 
-           
-           
-
-            
-       
         }
     }
 }
