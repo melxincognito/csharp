@@ -27,8 +27,15 @@ namespace NumberGuesser
 
             // Setting correct number
 
-            int correctNumber = 7;
+            // int correctNumber = 7;
 
+            // generating a random number for the correct number
+
+            Random random = new Random();
+
+            int correctNumber = random.Next(1, 10); // set the random parameters and such
+
+         
             // Starting game
 
             Console.WriteLine("Lets play a game!");
